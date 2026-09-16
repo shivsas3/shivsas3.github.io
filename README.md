@@ -1,7 +1,7 @@
 # shivsas3.github.io
 # Shiv Sastry — Engineering Portfolio
 
-Live site: _add your GitHub Pages URL here once it's live_
+Live site: https://shivsas3.github.io
 
 A running collection of independent mechanical engineering projects — reverse engineering, CAD, dimensioning, and design work done outside of coursework.
 
