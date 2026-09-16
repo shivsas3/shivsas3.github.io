@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiv Sastry — Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EEEDE8;
+    --bg-card: #FAFAF7;
+    --ink: #1C2B36;
+    --ink-soft: #4A5A68;
+    --rule: #B7BCC4;
+    --accent: #C4762A;
+    --accent-soft: #E8D9C8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14181B;
+      --bg-card: #1C2226;
+      --ink: #ECEAE4;
+      --ink-soft: #A9B2B9;
+      --rule: #3A4147;
+      --accent: #E0964A;
+      --accent-soft: #3A2C1C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14181B;
+    --bg-card: #1C2226;
+    --ink: #ECEAE4;
+    --ink-soft: #A9B2B9;
+    --rule: #3A4147;
+    --accent: #E0964A;
+    --accent-soft: #3A2C1C;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---- Title block (hero) ---- */
+  .titleblock {
+    border: 1.5px solid var(--ink);
+    background: var(--bg-card);
+  }
+  .titleblock-top {
+    padding: 28px 28px 24px;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .titleblock-top h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.15;
+  }
+  .titleblock-role {
+    margin-top: 8px;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+  .titleblock-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .titleblock-cell {
+    padding: 14px 18px;
+    border-right: 1px solid var(--rule);
+    min-width: 0;
+  }
+  .titleblock-cell:last-child { border-right: none; }
+  .titleblock-cell .label {
+    display: block;
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .titleblock-cell a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    font-size: 13.5px;
+    word-break: break-word;
+  }
+  .titleblock-cell a:hover { color: var(--accent); }
+  .titleblock-cell .value {
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 560px) {
+    .titleblock-grid { grid-template-columns: repeat(2, 1fr); }
+    .titleblock-cell:nth-child(2) { border-right: none; }
+    .titleblock-cell:nth-child(1), .titleblock-cell:nth-child(2) {
+      border-bottom: 1px solid var(--rule);
+    }
+  }
+
+  /* ---- Dimension-line divider ---- */
+  .dim {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 48px 0 28px;
+    color: var(--ink-soft);
+  }
+  .dim-line {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    position: relative;
+  }
+  .dim-line::before, .dim-line::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    width: 1px;
+    height: 7px;
+    background: var(--rule);
+  }
+  .dim-line::before { left: 0; }
+  .dim-line::after { right: 0; }
+  .dim-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  /* ---- About ---- */
+  .about p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    max-width: 62ch;
+  }
+  .about strong { color: var(--ink); font-weight: 600; }
+
+  /* ---- Project card (spec sheet) ---- */
+  .project {
+    border: 1.5px solid var(--ink);
+    background: var(--bg-card);
+    margin-bottom: 32px;
+  }
+  .project-head {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .project-head h2 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  .project-year {
+    font-size: 12px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    border: 1px solid var(--rule);
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+  .project-body { padding: 22px 24px 24px; }
+  .project-desc {
+    color: var(--ink-soft);
+    font-size: 13.5px;
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .project ul {
+    margin: 0 0 18px;
+    padding-left: 18px;
+    font-size: 14px;
+  }
+  .project li { margin-bottom: 9px; }
+  .project li::marker { color: var(--accent); }
+
+  .spec-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .spec-tag {
+    font-size: 11.5px;
+    color: var(--ink);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding-top: 14px;
+    border-top: 1px dashed var(--rule);
+  }
+  .project-links a {
+    font-size: 13px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+  }
+  .project-links a:hover { color: var(--accent); }
+
+  /* ---- Placeholder / next-project slot ---- */
+  .next-slot {
+    border: 1.5px dashed var(--rule);
+    padding: 24px;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 13px;
+    border-radius: 2px;
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-soft);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  ::selection { background: var(--accent-soft); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="titleblock">
+    <div class="titleblock-top">
+      <h1>Shiv Sastry</h1>
+      <div class="titleblock-role">Mechanical Engineering &amp; Finance — Lehigh University</div>
+    </div>
+    <div class="titleblock-grid">
+      <div class="titleblock-cell">
+        <span class="label">Email</span>
+        <a href="mailto:shiv.sas3@gmail.com">shiv.sas3@gmail.com</a>
+      </div>
+      <div class="titleblock-cell">
+        <span class="label">LinkedIn</span>
+        <a href="https://linkedin.com/in/shiv-sastry" target="_blank" rel="noopener">/in/shiv-sastry</a>
+      </div>
+      <div class="titleblock-cell">
+        <span class="label">Writing</span>
+        <a href="https://parcfermereport.substack.com" target="_blank" rel="noopener">The Parc Fermé Report</a>
+      </div>
+      <div class="titleblock-cell">
+        <span class="label">Location</span>
+        <span class="value">Barrington, IL</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dim">
+    <span class="dim-label">About</span>
+    <div class="dim-line"></div>
+  </div>
+
+  <div class="about">
+    <p>I'm a sophomore at Lehigh University in the Integrated Business and Engineering Honors Program, pursuing a dual degree in <strong>Mechanical Engineering and Finance</strong>. I like taking physical things apart to understand exactly how they work — then putting that understanding into precise, dimensioned CAD. Outside of coursework, I contribute to Lehigh's <strong>Formula SAE</strong> aerodynamics subsystem, compete on the <strong>NCAA Division I tennis team</strong>, and write <strong>The Parc Fermé Report</strong>, an independent publication analyzing Formula 1 technical regulations and race strategy.</p>
+  </div>
+
+  <div class="dim">
+    <span class="dim-label">Projects</span>
+    <div class="dim-line"></div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- PROJECT 1 -->
+  <!-- ============================================= -->
+  <div class="project">
+    <div class="project-head">
+      <h2>Self-Locking Tape Measure — Reverse Engineering &amp; Part Definition</h2>
+      <span class="project-year">2023</span>
+    </div>
+    <div class="project-body">
+      <div class="project-desc">Independent design project: product teardown, dimensional measurement, and 2D/3D part definition.</div>
+      <div class="spec-row">
+        <span class="spec-tag">Onshape</span>
+        <span class="spec-tag">Dial Caliper</span>
+        <span class="spec-tag">GD&amp;T</span>
+        <span class="spec-tag">8 Components</span>
+      </div>
+      <ul>
+        <li>Reverse-engineered a self-locking tape measure by fully disassembling the product and dimensioning all 8 components with a dial caliper.</li>
+        <li>Derived nominal dimensions and assigned dimensional tolerances at each mating interface to maintain the clearances and fits required for the mechanism to function.</li>
+        <li>Created a 2D detail drawing for each component, 3D modeled each in Onshape, and built the full assembly.</li>
+      </ul>
+      <div class="project-links">
+        <!-- TODO: replace with your real Onshape public document link -->
+        <a href="#" target="_blank" rel="noopener">View CAD Assembly (Onshape) →</a>
+        <!-- TODO: replace with a link to your 2D detail drawing PDFs, if hosted separately -->
+        <a href="#" target="_blank" rel="noopener">2D Detail Drawings (PDF) →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- ADD FUTURE PROJECTS HERE — copy the <div class="project">
+       block above, paste it below this comment, and edit:
+       - title, year, description
+       - spec-row tags
+       - bullet points
+       - project-links hrefs
+  ============================================= -->
+
+  <div class="next-slot">
+    More projects coming soon.
+  </div>
+
+  <footer>
+    <span>Last updated 2026</span>
+    <span>Built with care, dimensioned to spec.</span>
+  </footer>
+
+</div>
+</body>
+</html>
