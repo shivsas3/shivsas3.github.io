@@ -10,9 +10,9 @@ I'm a sophomore at Lehigh University pursuing a dual degree in Mechanical Engine
 
 ## Projects
 
-- **Self-Locking Tape Measure — Reverse Engineering & Part Definition ** — Full product teardown and dimensioning of an 8-component mechanism using a dial caliper, with tolerances derived at each mating interface and a complete 2D/3D part definition built in Onshape (10-sheet drawing package).
+- **Self-Locking Tape Measure — Reverse Engineering & Part Definition** — Full product teardown and dimensioning of an 8-component mechanism using a dial caliper, with tolerances derived at each mating interface and a complete 2D/3D part definition built in Onshape (10-sheet drawing package).
 
-- **Tire Degradation & Lap-Time Regression — F1 Race Data Analysis ** — Built a linear regression pipeline on official Formula 1 timing data (via FastF1) to quantify tire degradation by compound. Diagnosed a fuel-burn confound in the initial model, corrected it by adding lap number as a second regressor, and compared results across two seasons to distinguish a genuine multicollinearity limitation from a fixed property of any one compound.
+- **Tire Degradation & Lap-Time Regression — F1 Race Data Analysis** — Built a linear regression pipeline on official Formula 1 timing data (via FastF1) to quantify tire degradation by compound. Diagnosed a fuel-burn confound in the initial model, corrected it by adding lap number as a second regressor, and compared results across two seasons to distinguish a genuine multicollinearity limitation from a fixed property of any one compound.
 
 More projects will be added here over time.
 
