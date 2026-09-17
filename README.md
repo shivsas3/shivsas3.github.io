@@ -6,7 +6,7 @@ A running collection of independent mechanical engineering and data analysis pro
 
 ## About
 
-I'm a sophomore at Lehigh University pursuing a dual degree in Mechanical Engineering and Finance through the Integrated Business and Engineering Honors Program. I also contribute to Lehigh's Formula SAE aerodynamics subsystem and write [The Parc Fermé Report](https://theparcfermereport.substack.com/), an independent publication analyzing Formula 1 technical regulations and strategy.
+I'm a sophomore at Lehigh University pursuing a dual degree in Mechanical Engineering and Finance through the Integrated Business and Engineering Honors Program. I write [The Parc Fermé Report](https://theparcfermereport.substack.com/), an independent publication analyzing Formula 1 technical regulations and strategy.
 
 ## Projects
 
