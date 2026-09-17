@@ -330,6 +330,38 @@
   </div>
 
   <!-- ============================================= -->
+  <!-- ============================================= -->
+  <!-- PROJECT 2 -->
+  <!-- ============================================= -->
+  <div class="project">
+    <div class="project-head">
+      <h2>Tire Degradation &amp; Lap-Time Regression — F1 Race Data Analysis (2025–26 Hungary)</h2>
+    </div>
+    <div class="project-body">
+      <div class="project-desc">Independent data analysis project: built a linear regression pipeline on official Formula 1 timing data to quantify tire degradation by compound, then diagnosed and corrected a confound in the model.</div>
+      <div class="spec-row">
+        <span class="spec-tag">Python</span>
+        <span class="spec-tag">Pandas</span>
+        <span class="spec-tag">scikit-learn</span>
+        <span class="spec-tag">FastF1</span>
+        <span class="spec-tag">Regression</span>
+        <span class="spec-tag">1,300+ Laps</span>
+      </div>
+      <ul>
+        <li>Pulled and cleaned official lap-by-lap timing data (1,431 raw laps from a 22-car grid) using the FastF1 API, removing pit in/out laps and laps with no recorded time to isolate representative race pace.</li>
+        <li>Fit a linear regression of lap time vs. tire age separately for each compound (Soft, Medium, Hard) to estimate degradation in seconds per lap.</li>
+        <li>Identified that the initial model produced physically inconsistent results (negative degradation for Medium/Soft) due to a confound with fuel burn, since cars get lighter and faster over a race independent of tire wear.</li>
+        <li>Corrected the model by adding lap number as a second regressor to isolate fuel effects from tire wear, improving R² from 0.01–0.09 to 0.05–0.39 across compounds and producing physically sensible degradation estimates for two of the three compounds.</li>
+        <li>Compared results against a second race (2025 Hungary) and found the compound with anomalous results changed between races (Soft in 2025, Medium in 2026) — diagnosed as multicollinearity between tire age and lap number for whichever compound sees the narrowest usage window that race, rather than a fixed property of any one compound.</li>
+      </ul>
+      <div class="project-links">
+        <a href="https://github.com/shivsas3/shivsas3.github.io/blob/main/tire_degradation_analysis.py" target="_blank" rel="noopener">View Source Code (GitHub) →</a>
+        <a href="tire_degradation_raw.png" target="_blank" rel="noopener">View Raw Chart →</a>
+        <a href="tire_degradation_fuel_adjusted.png" target="_blank" rel="noopener">View Fuel-Adjusted Chart →</a>
+      </div>
+    </div>
+  </div>
+
   <!-- ADD FUTURE PROJECTS HERE — copy the <div class="project">
        block above, paste it below this comment, and edit:
        - title, year, description
